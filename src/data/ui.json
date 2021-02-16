@@ -1,0 +1,52 @@
+
+[
+  {
+    "type": "questionnaire",
+    "questionnaireTitle": "L'engagement",
+    "questionnaireId": "qid1",
+    "questionIds":[10,11,12,13,14
+
+    ],
+    "questionLabels":["Je suis ?", "question11", "question12", "question13", "question14"
+
+    ]
+  },
+  {
+    "type": "questionnaire",
+    "questionnaireTitle": "La gestion du stress",
+    "questionnaireId": "qid2",
+    "questionIds":[20,21,22,23,24
+
+    ] ,
+    "questionLabels":["question20", "question21", "question22", "question23", "question24"
+
+    ]
+
+  },
+
+  {
+    "type": "questionnaire",
+    "questionnaireTitle": "La preparation",
+    "questionnaireId": "qid3",
+    "questionIds":[30,31,32,33,34
+
+    ],
+    "questionLabels":["Je suis ?", "question11", "question12", "question13", "question14"
+
+    ]
+  },
+
+  {
+    "type": "serverestapi",
+    "uri": "/service/backend/question/add"
+
+  },
+  {
+    "type": "questionnaireresult",
+    "questionnaireTitle": "Result  ",
+    "questionnaireId": "res1"
+
+
+  }
+]
+  

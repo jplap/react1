@@ -1,0 +1,197 @@
+import React from 'react';
+import Question from './Question';
+//import logobleu from './logo_bleu.png';
+import './logo_bleu.png'
+import './logo_bleu@2x.png'
+import axios from 'axios'
+
+
+
+class Board extends React.Component {
+    constructor(props) {
+        super(props);
+        this.page = 1;
+        this.clickHandler = this.clickHandler.bind(this);
+        //this.questionNumber = 5;
+        this.questionId = [
+            0,
+            1,
+            2,
+            3,
+            4
+        ];
+        this.questionLabel =[
+            "Dans mon sport, je suis déterminé à ne rien lâcher",
+            "Deuxieme question",
+            "Question numero 3",
+            "Question numero 4",
+            "Question numero 5"
+        ];
+        this.questionsInstance = Array(this.numberQuestion);
+
+        this.state = { name: "React Component reload sample" };
+
+        this.dataOutput = {};
+        this.dataOutput["abilities"] = [];
+
+    }
+    setInstance(qid, instance){
+        this.questionsInstance[qid] = instance;
+    }
+
+
+    renderQuestion(qid, label) {
+
+
+        var q = <Question label={label}   qid={qid} controller={this}/>;
+
+        return q;
+
+    }
+
+
+    clickHandler = (e,data,qid) => {
+        console.log("click data :"+data+ " qid:" + qid );
+
+
+
+
+
+        var page = {};
+        page["id"] = qid;
+
+        var questions = [];
+
+        for( var i=0; i<this.questionsInstance.length; i++){
+
+            console.log("question qid:" + this.questionsInstance[i].qid + " label:" + this.questionsInstance[i].label +" score:" + this.questionsInstance[i].score);
+            var question = { };
+            question["qid"] = this.questionsInstance[i].qid;
+            question["score"] = parseInt(this.questionsInstance[i].score);
+            if ( this.questionsInstance[i].score <= 0 ){
+
+                alert ("all response are manadatory");
+                break;
+
+            }
+            questions.push(question);
+
+        }
+
+        page["questions"] = questions;
+
+        this.dataOutput["abilities"].push(page);
+        console.log("this.dataOutput:", this.dataOutput);
+
+        axios({
+            method: 'post',     //put
+            url: 'http://localhost:8080/question/add',
+            //headers: {'Authorization': 'Bearer'+token},
+            data: this.dataOutput
+        }).then(response=>{
+            console.log(response);
+            //this.renderRedirect()
+
+            this.page = 2;
+            //this.render();
+            this.setState({ name: "React Component Updated - " + new Date() });
+            //let path = `/page3`;
+            //const history = useHistory();
+            //history.push(path);
+            //browserHistory.push('/page3');
+        })
+
+        /*axios.post('http://localhost:8080/question/add')
+            .then(response=>{
+                console.log(response)
+            })*/
+    }
+    firstQuestionnaire(){
+        console.log("firstQuestionnaire");
+        var questionnaireId = "qid1"
+        return (
+
+            <div>
+
+                <div className="ctitle_t">Engagement</div>
+
+                <div className="cquestion_blk">
+
+                    {this.renderQuestion( this.questionId[0], this.questionLabel[0])}
+                    {this.renderQuestion( this.questionId[1], this.questionLabel[1])}
+                    {this.renderQuestion( this.questionId[2], this.questionLabel[2])}
+                    {this.renderQuestion( this.questionId[3], this.questionLabel[3])}
+                    {this.renderQuestion( this.questionId[4], this.questionLabel[4])}
+                </div>
+
+                <div id="Suivant_area" onClick={(e) =>this.clickHandler(e,this, questionnaireId )}>
+
+                    <svg className="Rectangle_612">
+                        <rect className="rectclass"/>
+                    </svg>
+                    <div id="Suivant">
+                        <span>Suivant</span>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        );
+
+    }
+    secondQuestionnaire(){
+        console.log("secondQuestionnaire");
+        var questionnaireId = "qid2"
+        return (
+
+            <div>
+
+                <div className="ctitle_t">Engagement JPL</div>
+
+                <div className="cquestion_blk">
+
+                    {this.renderQuestion( this.questionId[0], this.questionLabel[0])}
+                    {this.renderQuestion( this.questionId[1], this.questionLabel[1])}
+                    {this.renderQuestion( this.questionId[2], this.questionLabel[2])}
+                    {this.renderQuestion( this.questionId[3], this.questionLabel[3])}
+                    {this.renderQuestion( this.questionId[4], this.questionLabel[4])}
+                </div>
+
+                <div id="Suivant_area" onClick={(e) =>this.clickHandler(e,this,questionnaireId)}>
+
+                    <svg className="Rectangle_612">
+                        <rect className="rectclass"/>
+                    </svg>
+                    <div id="Suivant">
+                        <span>Suivant</span>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        );
+
+    }
+    render() {
+
+        if ( this.page === 1 ) {
+            return this.firstQuestionnaire();
+        }else{
+            return this.secondQuestionnaire();
+        }
+
+
+    }
+}
+export default Board;
+
+/*
+<rect fill="rgba(67,67,153,1)" stroke="rgba(112,112,112,1)" strokeWidth="1px"
+                              strokeLinejoin="miter" strokeLinecap="butt" strokeMiterlimit="4" shapeRendering="auto"
+                              id="Rectangle_612" rx="27" ry="27" x="0" y="0" width="307" height="54">
+                        </rect>
+ */

@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+.cboard{
+  width: 1920px;
+  height: 2148px;
+  background-color: rgba(247,250,251,1);
+}
+
+.ctitle {
+  position: absolute;
+  width: 1920px;
+  height: 2148px;
+  background-color: rgba(247,250,251,1);
+  overflow: hidden;
+  --web-view-name: L’engagement;
+  --web-view-id: L_engagement;
+  --web-scale-on-resize: true;
+  --web-enable-deep-linking: true;
+}
+#logo_bleu {
+  #position: absolute;
+  width: 197px;
+  height: 25px;
+  left: 186px;
+  top: 150px;
+  overflow: visible;
+}

@@ -1,0 +1,99 @@
+
+
+.ctitle_t {
+    #position: absolute;
+    #left: 186px;
+    #top: 261px;
+    overflow: visible;
+    width: 376px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Rois;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 38px;
+    color: rgba(67,67,153,1);
+    letter-spacing: 0.36px;
+}
+.cquestion_blk{
+    #position: absolute;
+    top: 350px;
+    width: 100%;
+}
+
+.Pagination_BG_bb {
+    #position: absolute;
+    overflow: visible;
+    width: 105.319px;
+    height: 105.319px;
+    left: 0px;
+    top: 0px;
+}
+
+
+
+
+
+#Suivant_area {
+    position: absolute;
+    width: 307px;
+    height: 54px;
+    left: 1166px;
+    top: 1537px;
+    overflow: visible;
+}
+#Suivant_area .Rectangle_612 .rectclass:hover  {
+    fill: rgb(153 67 108);
+}
+#Suivant_area .Rectangle_612 .rectclass:active  {
+    fill: rgb(237 237 242);
+}
+
+
+.Rectangle_612 {
+     position: absolute;
+     overflow: visible;
+     width: 307px;
+     height: 54px;
+     left: 0px;
+     top: 0px;
+ }
+.rectclass{
+    fill: rgb(67, 67, 153);
+    stroke: rgb(112, 112, 112);
+    stroke-width: 1px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+    rx: 27;
+    ry: 27;
+    x: 0;
+    y: 0;
+    width: 307px;
+    height: 54px;
+}
+
+#Suivant {
+    position: absolute;
+    left: 119px;
+    top: 17px;
+    overflow: visible;
+    width: 70px;
+    white-space: nowrap;
+    line-height: 27px;
+    margin-top: -4.5px;
+    text-align: left;
+    font-family: RM Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    color: rgba(255,255,255,1);
+    letter-spacing: 0.81px;
+}
+
+
+
+.crect{
+    background-color: #61dafb;
+}
